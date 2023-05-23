@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 public class NewGameFrame extends JFrame implements ActionListener {
     JButton fourOnFourButton;
@@ -65,11 +66,15 @@ public class NewGameFrame extends JFrame implements ActionListener {
         }
         if(e.getSource()==backButton){
             this.dispose();
-            new StartFrame();
+            //new StartFrame();
         }
         if(e.getSource()==createGameButton){
             this.dispose();
-            new GameOn();
+            try {
+                new GameOn();
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
         }
     }
 }

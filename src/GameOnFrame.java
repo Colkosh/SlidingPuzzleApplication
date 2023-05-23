@@ -35,7 +35,7 @@ public class GameOnFrame extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()== cancelButton){
             this.dispose();
-            new StartFrame();
+           // new StartFrame();
         }
         if(e.getSource()== pauseButton){
             // timer stops

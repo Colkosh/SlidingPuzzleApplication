@@ -38,7 +38,7 @@ public class RecordsFrame extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == backButton) {
             this.dispose();
-            new StartFrame();
+//            new StartFrame();
         }
     }
 }

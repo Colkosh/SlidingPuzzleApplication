@@ -1,5 +1,10 @@
+import javax.swing.*;
+
 public class TestFrames {
     public static void main(String[] args) {
-        new StartFrame();
+        // if time -->
+        Fabric fabric = new FabricSpecial();
+
+        new StartFrame(fabric);
     }
 }
