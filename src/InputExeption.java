@@ -1,2 +1,2 @@
-public class InputExeption {
-}
+//public class InputExeption {
+//}

@@ -8,69 +8,72 @@ public class StartFrame extends JFrame implements ActionListener {
 
     JButton exitButton;
     JButton recordsButton;
-    JButton newGameButton = new JButton("New game");
-    StartFrame(Fabric fabric){
+    JButton newGameButton;
+    JLabel gameTitle;
+    JLabel backgroundColor;
+    JLayeredPane frameWidth;
+    ImageIcon icon;
+    Fabric fabric = new FabricSpecial();
+
+    StartFrame() {
         this.setTitle("Sliding Puzzle");
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(640,420);
+        this.setSize(640, 420);
         this.setResizable(false);
-        this.setLayout(null);
- 
+        this.setLayout(new GridLayout());
+
 //        TODO пернести все, ооставить только присваивание
 //        TODO добавить конфигурационный файл который будет содеражжать настройку цвета
-        JLabel backgroundColor = new JLabel();
-        backgroundColor.setBackground(new Color(139, 126, 102));
-        backgroundColor.setOpaque(true);
-        this.add(backgroundColor).setBounds(0, 0, 640, 420);
+        this.backgroundColor = this.fabric.getBackgroundColor();
 
-        newGameButton.setBounds(150, 100, 100, 50);
-        newGameButton.addActionListener(this);
+        this.newGameButton = this.fabric.getNewGameButton();
+        this.newGameButton.addActionListener(this);
 
-        this.recordsButton = fabric.getRecordButton();
+        this.recordsButton = this.fabric.getRecordButton();
         this.recordsButton.addActionListener(this);
 
-        this.exitButton = fabric.getExitButton();
+        this.exitButton = this.fabric.getExitButton();
         this.exitButton.addActionListener(this);
 
-        JLabel gameTitle = new JLabel();
-        gameTitle.setText("Sliding Puzzle");
-        gameTitle.setForeground(Color.DARK_GRAY);
-        gameTitle.setFont(new Font("Cursive", Font.ITALIC,30));
-        gameTitle.setSize(200,50);
-        gameTitle.setBounds(150, 0, 200, 50);
+        this.gameTitle = this.fabric.getGameTitle();
 
-        JLayeredPane frameWidth = new JLayeredPane();
-        frameWidth.setBounds(0, 0, 640, 420);
-        frameWidth.add(backgroundColor, Integer.valueOf(0));
-        frameWidth.add(gameTitle, Integer.valueOf(1));
-        frameWidth.add(exitButton,Integer.valueOf(1));
-        frameWidth.add(recordsButton,Integer.valueOf(1));
-        frameWidth.add(newGameButton,Integer.valueOf(1));
+        this.frameWidth = this.fabric.getFrameWidth();
+        this.frameWidth.add(backgroundColor, Integer.valueOf(0));
+        this.frameWidth.add(gameTitle, Integer.valueOf(1));
+        this.frameWidth.add(exitButton, Integer.valueOf(1));
+        this.frameWidth.add(recordsButton, Integer.valueOf(1));
+        this.frameWidth.add(newGameButton, Integer.valueOf(1));
 
         this.add(frameWidth);
 
-        ImageIcon icon = new ImageIcon("icon.jpeg");
+        this.icon = this.fabric.getIcon();
         this.setIconImage(icon.getImage());
     }
 
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource()==recordsButton){
+        if (e.getSource() == recordsButton) {
             this.dispose();
-            new RecordsFrame();
+
+            try {
+                new RecordsFrame(fabric);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+
         }
-        if(e.getSource()==newGameButton){
+        if (e.getSource() == newGameButton) {
             this.dispose();
             try {
-                new GameOn();
+                new GameOn(fabric);
 
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
         }
-        if(e.getSource()==exitButton){
+        if (e.getSource() == exitButton) {
             this.dispose();
             System.exit(0);
         }

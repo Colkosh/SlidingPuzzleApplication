@@ -1,10 +1,9 @@
-import javax.swing.*;
+
+import java.io.IOException;
 
 public class TestFrames {
-    public static void main(String[] args) {
-        // if time -->
-        Fabric fabric = new FabricSpecial();
 
-        new StartFrame(fabric);
+    public static void main(String[] args) {
+        new StartFrame();
     }
 }
