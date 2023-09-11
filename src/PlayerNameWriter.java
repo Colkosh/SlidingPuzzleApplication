@@ -12,46 +12,47 @@ import java.nio.file.Paths;
 public class PlayerNameWriter extends JFrame implements ActionListener {
 
     JButton submitButton;
+    JLabel backgroundColor;
     JTextField textField;
     ObjectMapper objectMapper = new ObjectMapper();
     File nameFile = new File("players.json");
 
-    public void writeField() {
+    public void writeField(Fabric fabric) {
+        // Set up the player name input frame
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(new FlowLayout());
 
-        submitButton = new JButton("Submit");
+        this.setIconImage(fabric.getIcon().getImage());
+
+        backgroundColor = fabric.getBackgroundColor();
+
+        submitButton = fabric.getSubmitButton();
         submitButton.addActionListener(this);
 
-        textField = new JTextField(20);
-        textField.setPreferredSize(new Dimension(250, 40));
-        textField.setFont(new Font(null, Font.PLAIN, 25));
-        textField.setForeground(Color.DARK_GRAY);
-        textField.setBackground(Color.BLACK);
-        textField.setCaretColor(Color.WHITE);
-        textField.setText("Username");
+        textField = fabric.getTextField();
 
-
-//TODO textField не сохраняется введенное значение Done
+        this.add(backgroundColor);
         this.add(submitButton);
         this.add(textField);
-        this.pack(); // size wil be comparable to components
+        this.pack(); // Set the size of the frame to fit the components
         this.setVisible(true);
     }
 
     public String readFromFile() throws IOException {
+        // Read the player name from the file
         return this.objectMapper.readValue(nameFile, String.class);
     }
 
     public void writeToFile(String name, ObjectMapper objectMapper) throws IOException {
+        // Write the player name to the file
         String jsonString = objectMapper.writeValueAsString(name);
         Files.write(Paths.get("players.json"), jsonString.getBytes());
     }
 
-
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == submitButton) {
+            // Handle the submit button click
             String text = textField.getText();
             try {
                 writeToFile(text, objectMapper);
@@ -62,8 +63,5 @@ public class PlayerNameWriter extends JFrame implements ActionListener {
             textField.setEditable(false);
             this.dispose();
         }
-
     }
-
 }
-
