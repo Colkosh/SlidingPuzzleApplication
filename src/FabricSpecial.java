@@ -3,7 +3,9 @@ import java.awt.*;
 
 public class FabricSpecial implements Fabric {
     /**
-     * @return
+     * Returns an ImageIcon for the game icon.
+     *
+     * @return The ImageIcon for the game icon.
      */
     @Override
     public ImageIcon getIcon() {
@@ -12,7 +14,9 @@ public class FabricSpecial implements Fabric {
     }
 
     /**
-     * @return
+     * Returns a JLabel for the background color.
+     *
+     * @return The JLabel for the background color.
      */
     @Override
     public JLabel getBackgroundColor() {
@@ -24,7 +28,9 @@ public class FabricSpecial implements Fabric {
     }
 
     /**
-     * @return
+     * Returns a JLayeredPane for the frame width.
+     *
+     * @return The JLayeredPane for the frame width.
      */
     @Override
     public JLayeredPane getFrameWidth() {
@@ -34,12 +40,14 @@ public class FabricSpecial implements Fabric {
     }
 
     /**
-     * @return
+     * Returns a JButton for the new game button.
+     *
+     * @return The JButton for the new game button.
      */
     @Override
     public JButton getNewGameButton() {
         JButton newGameButton = new JButton("New game");
-        newGameButton.setBounds(260, 100, 100, 50);
+        newGameButton.setBounds(220, 100, 200, 50);
         newGameButton.setFont(new Font("Brush Script MT", Font.PLAIN, 30));
         newGameButton.setBackground(new Color(248, 152, 111));
         newGameButton.setBorder(BorderFactory.createEtchedBorder());
@@ -47,12 +55,14 @@ public class FabricSpecial implements Fabric {
     }
 
     /**
-     * @return
+     * Returns a JButton for the records button.
+     *
+     * @return The JButton for the records button.
      */
     @Override
     public JButton getRecordButton() {
         JButton recordsButton = new JButton("Records");
-        recordsButton.setBounds(260, 200, 100, 50);
+        recordsButton.setBounds(220, 200, 200, 50);
         recordsButton.setFont(new Font("Brush Script MT", Font.PLAIN, 30));
         recordsButton.setBackground(new Color(248, 152, 111));
         recordsButton.setBorder(BorderFactory.createEtchedBorder());
@@ -60,12 +70,14 @@ public class FabricSpecial implements Fabric {
     }
 
     /**
-     * @return
+     * Returns a JButton for the exit button.
+     *
+     * @return The JButton for the exit button.
      */
     @Override
     public JButton getExitButton() {
         JButton exitButton = new JButton("EXIT");
-        exitButton.setBounds(260, 300, 100, 50);
+        exitButton.setBounds(220, 300, 200, 50);
         exitButton.setFont(new Font("Brush Script MT", Font.PLAIN, 30));
         exitButton.setBackground(new Color(248, 152, 111));
         exitButton.setBorder(BorderFactory.createEtchedBorder());
@@ -74,26 +86,28 @@ public class FabricSpecial implements Fabric {
 
 
     /**
-     * @return
+     * Returns a JLabel for the game title.
+     *
+     * @return The JLabel for the game title.
      */
     @Override
     public JLabel getGameTitle() {
         JLabel gameTitle = new JLabel("Sliding Puzzle");
         gameTitle.setForeground(Color.DARK_GRAY);
         gameTitle.setFont(new Font("Cursive", Font.ITALIC, 50));
-        gameTitle.setSize(400, 50);
-        gameTitle.setBounds(150, 0, 400, 60);
+        gameTitle.setBounds(165, 0, 310, 60);
         return gameTitle;
     }
 
-
     /**
-     * @return
+     * Returns a JButton for the back button.
+     *
+     * @return The JButton for the back button.
      */
     @Override
     public JButton getBackButton() {
         JButton backButton = new JButton("Back");
-        backButton.setBounds(300, 400, 100, 50);
+        backButton.setBounds(40, 400, 400, 50);
         backButton.setFont(new Font("Brush Script MT", Font.PLAIN, 30));
         backButton.setBackground(new Color(248, 152, 111));
         backButton.setBorder(BorderFactory.createEtchedBorder());
@@ -101,10 +115,12 @@ public class FabricSpecial implements Fabric {
     }
 
     /**
-     * @return
+     * Returns a JLabel for the records title.
+     *
+     * @return The JLabel for the records title.
      */
     @Override
-    public JLabel grtRecordsTitle() {
+    public JLabel getRecordsTitle() {
         JLabel recordsTitle = new JLabel("Record Board");
         recordsTitle.setForeground(new Color(248, 152, 111));
         recordsTitle.setFont(new Font("Cursive", Font.ITALIC, 30));
@@ -114,7 +130,9 @@ public class FabricSpecial implements Fabric {
     }
 
     /**
-     * @return
+     * Returns a JFrame for the game frame.
+     *
+     * @return The JFrame for the game frame.
      */
     @Override
     public JFrame getGameFrame() {
@@ -127,7 +145,9 @@ public class FabricSpecial implements Fabric {
     }
 
     /**
-     * @return
+     * Returns a JButton for the cancel button.
+     *
+     * @return The JButton for the cancel button.
      */
     @Override
     public JButton getCancelButton() {
@@ -136,12 +156,13 @@ public class FabricSpecial implements Fabric {
         cancelButton.setFont(new Font("Brush Script MT", Font.PLAIN, 30));
         cancelButton.setBackground(new Color(248, 152, 111));
         cancelButton.setBorder(BorderFactory.createEtchedBorder());
-
         return cancelButton;
     }
 
     /**
-     * @return
+     * Returns a JPanel for the main panel.
+     *
+     * @return The JPanel for the main panel.
      */
     @Override
     public JPanel getMainPanel() {
@@ -153,7 +174,9 @@ public class FabricSpecial implements Fabric {
     }
 
     /**
-     * @return
+     * Returns a JLabel for the win label.
+     *
+     * @return The JLabel for the win label.
      */
     @Override
     public JLabel getWinLabel() {
@@ -163,5 +186,36 @@ public class FabricSpecial implements Fabric {
         winLabel.setForeground(new Color(248, 152, 111));
         winLabel.setVisible(false);
         return winLabel;
+    }
+
+    /**
+     * Returns a JButton for the submit button.
+     *
+     * @return The JButton for the submit button.
+     */
+    @Override
+    public JButton getSubmitButton() {
+        JButton submitButton = new JButton("Submit");
+        submitButton.setFont(new Font("Brush Script MT", Font.PLAIN, 30));
+        submitButton.setBackground(new Color(248, 152, 111));
+        submitButton.setBorder(BorderFactory.createEtchedBorder());
+        return submitButton;
+    }
+
+    /**
+     * Returns a JTextField for the text field.
+     *
+     * @return The JTextField for the text field.
+     */
+    @Override
+    public JTextField getTextField() {
+        JTextField textField = new JTextField(20);
+        textField.setPreferredSize(new Dimension(300, 50));
+        textField.setFont(new Font(null, Font.PLAIN, 25));
+        textField.setForeground(Color.LIGHT_GRAY);
+        textField.setBackground(new Color(139, 126, 102));
+        textField.setCaretColor(Color.LIGHT_GRAY);
+        textField.setText("Username");
+        return textField;
     }
 }
